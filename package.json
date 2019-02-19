@@ -1,0 +1,28 @@
+{
+  "name": "redux-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch server --exec babel-node -- server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "bcrypt-nodejs": "^0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "jwt-decode": "^2.2.0",
+    "knex": "^0.16.3",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.4.9",
+    "pg": "^7.8.0",
+    "ph": "^0.1.10",
+    "validator": "^10.11.0"
+  }
+}
