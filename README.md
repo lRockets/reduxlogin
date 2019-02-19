@@ -20,3 +20,4 @@ cd client
 rm yarn.lock && yarn install
 ```
 
+node版本：v10.13.0
