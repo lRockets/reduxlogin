@@ -4,7 +4,7 @@ import { add_article }  from '../../actions/createEventsActions';
 import Editor from 'for-editor';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
-import { addFlashMessage } from '../../actions/flashMessage';
+import { addFlashMessage,clearMessage } from '../../actions/flashMessage';
 
 
 class CreateEvent extends Component {
@@ -16,10 +16,28 @@ class CreateEvent extends Component {
         }
     }
     componentDidMount(){
-        !this.props.auth.isAuthenticated && this.props.history.push('/');
+        if(!this.props.auth.isAuthenticated){
+            this.props.addFlashMessage({
+                type:'danger',
+                text:'此页面必须登录才能访问'
+            })
+            setTimeout(()=>{
+                this.props.clearMessage();
+                this.props.history.push('/');
+            },1000);
+        }
     }
     componentDidUpdate(){
-        !this.props.auth.isAuthenticated && this.props.history.push('/');
+        if(!this.props.auth.isAuthenticated){
+            this.props.addFlashMessage({
+                type:'danger',
+                text:'此页面必须登录才能访问'
+            })
+            setTimeout(()=>{
+                this.props.clearMessage();
+                this.props.history.push('/');
+            },1000);
+        }
     }
     handleChange(value) {
         this.setState({
@@ -83,4 +101,4 @@ const mapStateProps=(state)=>{
 }
 
 
-export default connect(mapStateProps,{ add_article,addFlashMessage })(CreateEvent);
+export default connect(mapStateProps,{ add_article,addFlashMessage,clearMessage })(CreateEvent);

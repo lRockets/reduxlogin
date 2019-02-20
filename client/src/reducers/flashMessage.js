@@ -1,4 +1,4 @@
-import { ADD_FLASH_MESSAGE,REMOVE_FLASH_MESSAGE} from '../contants';
+import { ADD_FLASH_MESSAGE,REMOVE_FLASH_MESSAGE,CLEAR_FLASH_MESSAGE} from '../contants';
 import shortid from 'shortid';
 
 const flashMessage=(state=[],action)=>{
@@ -14,6 +14,8 @@ const flashMessage=(state=[],action)=>{
             ]
         case REMOVE_FLASH_MESSAGE:
             return state.filter(item=>item.id !== action.id)
+        case CLEAR_FLASH_MESSAGE:
+            return state=[];
         default:
             return state;
     }
